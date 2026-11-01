@@ -1,45 +1,49 @@
 {
   "schemaVersion": 1,
   "package": "swift-ai-quiverai",
-  "version": "1.0.0",
-  "releaseID": "modular-3",
+  "version": "1.1.0",
+  "releaseID": "weekly-upstream-20261101",
   "source": {
-    "commit": "7fc9b4cd72f8f83b75ba7eee2e38d37127539317",
-    "baseCommit": "7fc9b4cd72f8f83b75ba7eee2e38d37127539317",
+    "commit": "ea057797494ab9bb66df8c6bfd8edc10245b20e7",
+    "baseCommit": "ea057797494ab9bb66df8c6bfd8edc10245b20e7",
     "workingTree": false,
-    "inputsSHA256": "49b802ba4a30454f78c9886ab3114537ef659ab3e6db7775479b7351f6e3f0ab"
+    "inputsSHA256": "b46f3e07b0a583d6fee81035987d74a06fc5c6109cbdf228144d1172d2c3676e"
   },
   "dependencies": [
     {
       "package": "swift-ai-core",
-      "from": "1.1.0"
+      "from": "1.2.0"
     },
     {
       "package": "swift-ai-open-responses",
-      "from": "1.0.0"
+      "from": "1.1.0"
     }
   ],
   "changes": [
     {
-      "id": "remaining-package-extraction",
-      "notes": "Extract the existing runtime, typed settings and standalone tests from the compatibility aggregate. Preserve the reviewed npm baseline and existing capability/gap boundaries.",
-      "compatibility": "Initial independent Swift package version. Existing SwiftAISDK entry points remain in the development compatibility facade; no npm-version equivalence is implied."
+      "id": "weekly-upstream-20261101",
+      "notes": "Portable none/minimal maps to low and max to xhigh with compatibility warnings in generation/stream-start; explicit canonical provider effort retains priority through the shared Responses adapter. Add lazy apiKeyProvider for language and image requests; existing auth/header and provider-reference policies retained. Reviewed upstream: @ai-sdk/quiverai 2.0.69 to 2.0.73. Validation passed: node Scripts/test-packages.mjs (all 52 owning package suites and the compatibility facade); node Scripts/sdk.mjs generate --check; node --test Scripts/tests/*.test.cjs (27 passed); docs-site check and build (100 pages). Live provider calls were not run.",
+      "compatibility": "Minor release for additive native API; existing static settings and call sites remain compatible. Updated direct dependency minimums are recorded in the manifest. Existing documented JS/framework and native product gaps remain; version-delta review does not imply full parity or live-service testing. Explicit custom authentication skips an unused credential supplier, a deliberate native callback-order adaptation."
     }
   ],
   "canonicalDirectory": "Packages/swift-ai-quiverai",
   "upstream": [
     {
       "name": "@ai-sdk/quiverai",
-      "reviewedVersion": "2.0.69",
+      "reviewedVersion": "2.0.73",
       "ledgerKind": "provider",
-      "evidence": "`AIProviders.quiverAI`, `OpenAICompatibleResponsesModel`, `QuiverAITools`, `QuiverAIImageModel`, `QuiverAIProviderTests.swift`",
+      "evidence": "`AIProviders.quiverAI`, `OpenAICompatibleResponsesModel`, `QuiverAITools`, `QuiverAIImageModel`, `QuiverAIProviderTests.swift`; 2026-11-01 delta: Docs/WeeklyUpstreamAudit20261101.json",
       "reviewStatus": "imported-reviewed-with-gaps",
-      "archiveIntegrity": "sha512-0pKWFmZWSGJURAmYzqwEEPAmZk+LtbTtqicCHQwtIsUVOVJNrJZ+l06UR+O1RFGLdYcciNww0sEb8dRelkAmug==",
-      "sourceRef": "npm:@ai-sdk/quiverai@2.0.69",
-      "testRef": "682e2dd71456f14f9da33a1b983d1998c3a1184c",
-      "testRefRelationship": "inventory-snapshot-not-release-verified",
-      "contractFamilies": [],
-      "contractReview": "not-imported; inspect upstream declarations before extraction"
+      "archiveIntegrity": "sha512-jWF7wbya65ZvhBy2lhZlutblRk0lYleebIokb5ffZ4pjIGkYv6teyEvcEpw5AvQORTypiVsiEeUfgtvxE1JJDg==",
+      "sourceRef": "npm:@ai-sdk/quiverai@2.0.73",
+      "testRef": "9b603d36186b75e58d5479445a96c76f6e2d2700",
+      "testRefRelationship": "matching-release",
+      "contractFamilies": [
+        "ImageModelV4",
+        "LanguageModelV4",
+        "ProviderV4"
+      ],
+      "contractReview": "2026-11-01: published declarations, source and exact matching-release changed tests reviewed; scoped dispositions and Swift translations are in Docs/WeeklyUpstreamAudit20261101.json. Existing broader product gaps remain; reviewed delta is not full-package parity."
     }
   ],
   "note": "Independent port. Imported test refs and contract review gaps retain their original status; export is not new upstream parity proof.",
@@ -58,7 +62,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/Porting/map.json",
-      "sha256": "185248c944a6916a8a48c836ce4e5ead5e9e6af11666bf200f3ba1e6d208690e"
+      "sha256": "835ad81fee694b95138911642759d27301f026e5d882c4eeb2719f2c329ce32d"
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/README.md",
@@ -78,7 +82,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/Sources/SwiftAIQuiverAI/QuiverAIProvider.swift",
-      "sha256": "82a56f58439e2fa5c24bdbec17861bfbe46369a0a09af5eeb53d5cfec57e7623"
+      "sha256": "a601242ba681c8d240c98f62e97620ddaea38d64cefb3280075d6ef0d13e52ce"
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/Tests/SwiftAIQuiverAITests/FixtureDownloadTransport.swift",
@@ -86,15 +90,23 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/Tests/SwiftAIQuiverAITests/QuiverAIProviderTests.swift",
-      "sha256": "40a9178db6635e1bc25b8e52f1f3553eaad90f16d3c68485daf216a585788ea8"
+      "sha256": "6b33dc845884cdfd29f148cc498ee284b53f5e1fc69183dff32e84aa8df64fc2"
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/Tests/SwiftAIQuiverAITests/QuiverResponsesCompatibilityTests.swift",
-      "sha256": "65fc2cfc38545e76ce600520bc984dbee6998cd795df4718cbba185f3af72812"
+      "sha256": "51824763291ab7d8b84965a783342025bbcca59d8f02711a36489357d3858bd3"
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/Tests/SwiftAIQuiverAITests/TestSupport.swift",
       "sha256": "131c2e207edb269d781446db2698582c9374254a94fff0c43dcf7bfd2d12fbe6"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-quiverai/Tests/SwiftAIQuiverAITests/Weekly20261101BehaviorTests.swift",
+      "sha256": "7aab516776e5bdbd054442a88c1d677164b03f337cd850ed8491e644d527b7d1"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-quiverai/Tests/SwiftAIQuiverAITests/Weekly20261101CredentialsTests.swift",
+      "sha256": "18ea8c93f5e9b6548ec4cfabf660846509a80414cb1e698cad455c62428afb3b"
     }
   ]
 }

@@ -10,8 +10,8 @@ let package = Package(
         .library(name: "SwiftAIQuiverAI", targets: ["SwiftAIQuiverAI"])
     ],
     dependencies: [
-        .package(url: "https://github.com/SwiftAISDK/swift-ai-core.git", from: "1.1.0"),
-        .package(url: "https://github.com/SwiftAISDK/swift-ai-open-responses.git", from: "1.0.0")
+        .package(url: "https://github.com/SwiftAISDK/swift-ai-core.git", from: "1.2.0"),
+        .package(url: "https://github.com/SwiftAISDK/swift-ai-open-responses.git", from: "1.1.0")
     ],
     targets: [
         .target(name: "SwiftAIQuiverAI", dependencies: [.product(name: "SwiftAIProvider", package: "swift-ai-core"), .product(name: "SwiftAITransport", package: "swift-ai-core"), .product(name: "SwiftAIProviderUtilities", package: "swift-ai-core"), .product(name: "SwiftAIOpenResponses", package: "swift-ai-open-responses")]),
