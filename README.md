@@ -1,5 +1,5 @@
 <!-- Generated distribution; edit the canonical repository. -->
-# swift-ai-quiverai 1.1.2
+# swift-ai-quiverai 1.2.0
 
 Independent Swift-native port of Vercel AI SDK. Source and upstream dispositions are in PROVENANCE.json and Porting/.
 
@@ -8,7 +8,7 @@ Independent Swift-native port of Vercel AI SDK. Source and upstream dispositions
 Add this package to your SwiftPM dependencies:
 
 ```swift
-.package(url: "https://github.com/SwiftAISDK/swift-ai-quiverai.git", from: "1.1.2")
+.package(url: "https://github.com/SwiftAISDK/swift-ai-quiverai.git", from: "1.2.0")
 ```
 
 Products: `SwiftAIQuiverAI`.
@@ -16,25 +16,29 @@ Contribute and report issues in the canonical SwiftAISDK repository.
 
 ## Authored usage guide
 
-# SwiftAIQuiverAI
+# QuiverAI for Swift
 
-Swift-native port of `@ai-sdk/quiverai`. Maintained in the canonical SwiftAISDK repository and exported as an independent Swift package.
+`SwiftAIQuiverAI` adds QuiverAI to [SwiftAISDK](https://github.com/SwiftAISDK/SwiftAISDK), an independent Swift port of the Vercel AI SDK. It ports `@ai-sdk/quiverai` and supports text generation and image generation.
+
+Provider guide with models, options, streaming and errors:
+
+- [QuiverAI](https://swiftaisdk.github.io/SwiftAISDK/providers/quiverai/)
+
+## Usage
+
+Add the `SwiftAI` product from `swift-ai-core` and the `SwiftAIQuiverAI` product from this package to your target, then create the provider:
 
 ```swift
+import SwiftAI
 import SwiftAIQuiverAI
 
-let provider = try QuiverAIProvider(configuration: .init(apiKey: "..."))
+let provider = try AIProviders.quiverAI(configuration: QuiverAIProviderSettings())
 ```
 
-Settings accept a custom base URL, headers, query parameters and an injected
-`AITransport`. Models use the common SwiftAIProvider protocols. Existing upstream
-baselines, capabilities and documented gaps remain unchanged.
+By default the provider reads `QUIVERAI_API_KEY` and `QUIVERAI_BASE_URL` from the environment; values set in `QuiverAIProviderSettings` take precedence.
 
-Run the standalone suite from the canonical checkout:
+To use every provider through one dependency, add the complete [SwiftAISDK](https://github.com/SwiftAISDK/SwiftAISDK) package instead; see [Install](https://swiftaisdk.github.io/SwiftAISDK/getting-started/install/).
 
-```sh
-swift test --package-path Packages/swift-ai-quiverai
-```
+## Contributing
 
-The canonical repository owns all edits. Distribution manifests and repositories
-are generated from the catalog; see `Porting/map.json` and the canonical provider guide.
+This package is exported from `Packages/swift-ai-quiverai` in the canonical [SwiftAISDK](https://github.com/SwiftAISDK/SwiftAISDK) repository. Open issues and pull requests there.
