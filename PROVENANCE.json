@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "package": "swift-ai-quiverai",
-  "version": "1.2.0",
-  "releaseID": "upstream-parity-20261116",
+  "version": "1.2.1",
+  "releaseID": "weekly-upstream-20261122",
   "source": {
-    "commit": "1c457dea36be42376a6853aecd5c48ffc4942178",
-    "baseCommit": "1c457dea36be42376a6853aecd5c48ffc4942178",
+    "commit": "73e28c7d4106338c3030bc36700c5922aeb2ebd9",
+    "baseCommit": "73e28c7d4106338c3030bc36700c5922aeb2ebd9",
     "workingTree": false,
-    "inputsSHA256": "d7b8f52add7828d7e9ed20418fe072e7db03e75483a168bb7f5c34e9d2a04a13"
+    "inputsSHA256": "5b64cfae284ecf9a081f1c08d5b5dff83915b3c57b62669a3408e51a52961cb5"
   },
   "dependencies": [
     {
@@ -21,29 +21,29 @@
   ],
   "changes": [
     {
-      "id": "upstream-parity-20261116",
-      "notes": "`maxImagesPerCall` is 16, as upstream.",
-      "compatibility": "Source-compatible; changes are additive. Request bodies, results, warnings and errors change to match the reviewed upstream package."
+      "id": "weekly-upstream-20261122",
+      "notes": "Align the provider request identity with @ai-sdk/quiverai 2.0.85 after comparing source, declarations and matching-release tests against 2.0.83. Offline validation passed: node Scripts/test-packages.mjs (56 packages, 3672 owning tests and 1760 compatibility tests), generation, tooling, isolation, and version selection. See Docs/Archive/WeeklyUpstreamAudit20261122.md for retained gaps. Paid provider calls were skipped.",
+      "compatibility": "Source-compatible request-header update."
     }
   ],
   "canonicalDirectory": "Packages/swift-ai-quiverai",
   "upstream": [
     {
       "name": "@ai-sdk/quiverai",
-      "reviewedVersion": "2.0.83",
+      "reviewedVersion": "2.0.85",
       "ledgerKind": "provider",
-      "evidence": "`AIProviders.quiverAI`, `OpenAICompatibleResponsesModel`, `QuiverAITools`, `QuiverAIImageModel`, `QuiverAIProviderTests.swift`; 2026-11-01 delta: Docs/Archive/WeeklyUpstreamAudit20261101.json; 2026-11-08 delta: Docs/Archive/WeeklyUpstreamAudit20261108.json; 2026-11-14 delta: Docs/Archive/WeeklyUpstreamAudit20261114.json",
+      "evidence": "`AIProviders.quiverAI`, `OpenAICompatibleResponsesModel`, `QuiverAITools`, `QuiverAIImageModel`, `QuiverAIProviderTests.swift`; 2026-11-01 delta: Docs/Archive/WeeklyUpstreamAudit20261101.json; 2026-11-08 delta: Docs/Archive/WeeklyUpstreamAudit20261108.json; 2026-11-14 delta: Docs/Archive/WeeklyUpstreamAudit20261114.json; 2026-11-22 delta: Docs/Archive/WeeklyUpstreamAudit20261122.json",
       "reviewStatus": "imported-reviewed-with-gaps",
-      "archiveIntegrity": "sha512-XVL8pg9N8jMhe4aTs3mn3y3D5QKUvEC+RPx8xq3cFkwBsGx3QQ3v9LrvIN9mLHk8Ss2K/FcQge8NSuKWai0PwA==",
-      "sourceRef": "npm:@ai-sdk/quiverai@2.0.83",
-      "testRef": "8bc7652cdb13fc84722666eb93f45acd0d131eee",
+      "archiveIntegrity": "sha512-poH8IibWeATpWanUtrio/rPs8m6LwGtj7cUK4YFM1hnop7bcah5ytX8Cl7H8mlKQN3HETrnYWFe1SOFSluBtTA==",
+      "sourceRef": "npm:@ai-sdk/quiverai@2.0.85",
+      "testRef": "3dad57f204c7332178d28c3467c7311875b66a3e",
       "testRefRelationship": "matching-release",
       "contractFamilies": [
         "ImageModelV4",
         "LanguageModelV4",
         "ProviderV4"
       ],
-      "contractReview": "2026-11-14: verified published source/declarations and exact matching-release changed tests reviewed separately; native ports, per-file dispositions and retained gaps are recorded in Docs/Archive/WeeklyUpstreamAudit20261114.json. Delta review is not full-package or live-service parity."
+      "contractReview": "2026-11-22: reviewed the published source and declarations and the matching-release test diffs. Native evidence and explicitly retained coverage gaps are in Docs/Archive/WeeklyUpstreamAudit20261122.json."
     }
   ],
   "note": "Independent port. Imported test refs and contract review gaps retain their original status; export is not new upstream parity proof.",
@@ -82,7 +82,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/Sources/SwiftAIQuiverAI/QuiverAIProvider.swift",
-      "sha256": "376b9ffaf8771440e6c1410f75b9fa36c2e7ebb290b698845ba39c4f8348d91b"
+      "sha256": "7ef45882eb2fc3e9796ec797341838d5138271777ce7f3a976986a2c2777bb31"
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/Tests/SwiftAIQuiverAITests/FixtureDownloadTransport.swift",
@@ -90,11 +90,11 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/Tests/SwiftAIQuiverAITests/QuiverAIProviderTests.swift",
-      "sha256": "3b210a6aade4d8cb6a465941c3344f8fa98358519da0a7e3f7113318de50dcd8"
+      "sha256": "d7f07be5866be387db8323f6cb337ea219c083b466ef441f50e8443a73cf4586"
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/Tests/SwiftAIQuiverAITests/QuiverResponsesCompatibilityTests.swift",
-      "sha256": "8394057e936bd999d09898292b35ff2f946a97f2c7bd0add5a9c28f8f1316ec0"
+      "sha256": "9098c809cffa619fba5e626de66c733670e2cd4a1680fd560c73235be25ae265"
     },
     {
       "canonicalPath": "Packages/swift-ai-quiverai/Tests/SwiftAIQuiverAITests/TestSupport.swift",
